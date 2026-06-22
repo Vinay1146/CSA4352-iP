@@ -1,0 +1,20 @@
+<?php
+$conn = new mysqli("localhost","root","","test");
+
+$opinion = $_POST['opinion'];
+
+$conn->query("INSERT INTO opinion(value) VALUES('$opinion')");
+
+$result = $conn->query("SELECT value, COUNT(*) as count FROM opinion GROUP BY value");
+
+while($row = $result->fetch_assoc()) {
+  echo $row['value'] . " : " . $row['count'] . "<br>";
+}
+?>
+
+HTML:-
+<form method="post" action="opinion.php">
+  <input type="radio" name="opinion" value="Yes">Yes
+  <input type="radio" name="opinion" value="No">No
+  <input type="submit">
+</form>

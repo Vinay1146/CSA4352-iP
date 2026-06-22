@@ -1,0 +1,9 @@
+<%@ page language="java" %>
+<html>
+<body>
+<%
+String name = "Gopi";
+%>
+<h2>Hello <%= name %></h2>
+</body>
+</html>

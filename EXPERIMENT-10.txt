@@ -1,0 +1,18 @@
+<?php
+$conn = new mysqli("localhost", "root", "", "test");
+
+$name = $_POST['name'];
+
+$sql = "INSERT INTO users(name) VALUES('$name')";
+
+if ($conn->query($sql)) {
+  echo "Inserted";
+} else {
+  echo "Error";
+}
+?>
+HTML:-
+<form method="post" action="insert.php">
+  Name: <input type="text" name="name">
+  <input type="submit">
+</form>

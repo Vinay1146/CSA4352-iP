@@ -1,0 +1,21 @@
+HTML:-
+
+<!-- page1.html -->
+<form action="page2">
+  <input type="hidden" name="user" value="Gopi">
+  <input type="submit" value="Next">
+</form>
+
+JAVA:-
+// Servlet page2
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class Page2 extends HttpServlet {
+  protected void doGet(HttpServletRequest req, HttpServletResponse res)
+  throws IOException {
+    String user = req.getParameter("user");
+    res.getWriter().println("User: " + user);
+  }
+}
